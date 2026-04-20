@@ -8,16 +8,16 @@ flowchart TB
         %% Global Memory Level
         GM[("Global Memory\n(Accessible by all Blocks & Threads)\nCapacity: GBs\nLatency: High")]
         
-        subgraph Grid [Grid Level\nDimensions: gridDim.x, gridDim.y, gridDim.z]
+        subgraph Grid [Grid: gridDim.x, gridDim.y, gridDim.z]
             direction TB
             
-            subgraph Block [Block Level\nDimensions: blockDim.x, blockDim.y, blockDim.z]
+            subgraph Block [Block: blockDim.x, blockDim.y, blockDim.z]
                 direction TB
                 
                 %% Shared Memory Level
                 SM[("Shared Memory\n(Accessible only by Threads in this Block)\nCapacity: KBs\nLatency: Low")]
                 
-                subgraph Tile [Tile Level\n(Logical sub-grouping of threads, often 2D)]
+                subgraph Tile [Logical Tile]
                     direction LR
                     T1(("Thread (0,0)\nRegisters\nLocal Memory"))
                     T2(("Thread (0,1)\nRegisters\nLocal Memory"))
